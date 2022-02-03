@@ -1,0 +1,37 @@
+version: "3.7"
+
+services:
+  elasticsearch:
+    image: elasticsearch:7.9.2
+    ports:
+      - "9200:9200"
+    environment:
+      - discovery.type=single-node
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+
+  kibana:
+    image: kibana:7.9.2
+    ports:
+      - "5601:5601"
+
+  logstash:
+    image: logstash:7.9.2
+    ports:
+      - "5044:5044"
+    volumes:
+      - ./logstash/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+      - ./logstash/logstash.template.json:/usr/share/logstash/templates/logstash.template.json
+
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:7.9.2
+    links:
+      - logstash:logstash
+    depends_on:
+      - logstash
+    volumes:
+      - ./logs:/usr/share/filebeat/logs
+      - ./filebeat.docker.yml:/usr/share/filebeat/filebeat.yml
+    command: ["--strict.perms=false"]
