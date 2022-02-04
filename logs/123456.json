@@ -1,0 +1,5 @@
+{"@timestamp":"2022-02-04T04:11:12.425Z","log.level":"info", "jobid": "123456", "message":"producer initiated.","ecs":{"version":"1.6.0"}}
+{"@timestamp":"2022-02-04T04:11:12.425Z","log.level":"info", "jobid": "123456", "message":"something else","ecs":{"version":"1.6.0"}}
+{"@timestamp":"2022-02-04T04:11:12.425Z","log.level":"info", "jobid": "123456", "message":"something else","ecs":{"version":"1.6.0"}}
+{"@timestamp":"2022-02-04T04:11:12.425Z","log.level":"info", "jobid": "123456", "message":"something else","ecs":{"version":"1.6.0"}}
+{"@timestamp":"2022-02-04T04:11:12.425Z","log.level":"info", "jobid": "123456", "message":"something else","ecs":{"version":"1.6.0"}}
