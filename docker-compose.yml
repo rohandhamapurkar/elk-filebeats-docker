@@ -35,4 +35,4 @@ services:
     volumes:
       - ./logs:/usr/share/filebeat/logs
       - ./filebeat.docker.yml:/usr/share/filebeat/filebeat.yml
-    command: ["--strict.perms=false"]
+    command: ["-e", "--strict.perms=false"]
